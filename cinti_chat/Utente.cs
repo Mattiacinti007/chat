@@ -9,13 +9,20 @@ namespace cinti_chat
 
     internal class Utente
     {
-        #region dichiarazione attributi
+        
         //dichiarazione attributi
+        string _nome;
+        string _messaggio;
+        bool _statoUtente;
+        List<string> _listaMessaggi;
+
+        #region proprietà attributi
+        //proprietà attributo nome
         public string Nome
         {
             get
             {
-                return this.Nome;
+                return _nome;
             }
             set
             {
@@ -25,15 +32,16 @@ namespace cinti_chat
                     throw new Exception("Nome non valido.");
                 }
 
-                this.Nome = value;
+                _nome = value;
             }
         }
         
+        //proprietà attributo messaggio
         public string Messaggio
         {
             get
             {
-                return this.Messaggio;
+                return _messaggio;
             }
             set
             {
@@ -42,20 +50,37 @@ namespace cinti_chat
                 {
                     throw new Exception("Messaggio non valido.");
                 }
+
+                _messaggio = value;
             }
         }
 
-        public bool StatoUtente { get; set; }
+        //proprietà attributo stato utente
+        public bool StatoUtente
+        {
+            get
+            {
+                return _statoUtente;
+            }
+            set
+            {
+                _statoUtente = value;
+            }
+        }
         #endregion
 
+
         //costruttore della classe
-        public Utente(string nome, string messaggio)
+        public Utente(string nome)
         {
             Nome = nome;
-            Messaggio = messaggio;
-            StatoUtente = false;
+            StatoUtente = true;
+            
         }
 
+        
+
+        #region funzione aggiungi messaggio
         /// <summary>
         /// aggiunge un messaggio alla chat
         /// </summary>
@@ -66,6 +91,8 @@ namespace cinti_chat
             nuovoMessaggio.Text = Messaggio;
             return nuovoMessaggio;
         }
+        #endregion
+
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace cinti_chat
 {
-    partial class frmChatUtente1
+    partial class frmChatUtente2
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,9 @@
         {
             btnInvia = new Button();
             txtMessaggio = new TextBox();
-            lblNome = new Label();
             btnLogin = new Button();
             txtNomeUtente = new TextBox();
+            lblNome = new Label();
             SuspendLayout();
             // 
             // btnInvia
@@ -40,7 +40,7 @@
             btnInvia.Location = new Point(685, 409);
             btnInvia.Name = "btnInvia";
             btnInvia.Size = new Size(103, 29);
-            btnInvia.TabIndex = 5;
+            btnInvia.TabIndex = 3;
             btnInvia.Text = "Invia";
             btnInvia.UseVisualStyleBackColor = true;
             btnInvia.Click += btnInvia_Click;
@@ -50,35 +50,35 @@
             txtMessaggio.Location = new Point(12, 411);
             txtMessaggio.Name = "txtMessaggio";
             txtMessaggio.Size = new Size(667, 27);
-            txtMessaggio.TabIndex = 4;
-            // 
-            // lblNome
-            // 
-            lblNome.AutoSize = true;
-            lblNome.Location = new Point(12, 24);
-            lblNome.Name = "lblNome";
-            lblNome.Size = new Size(99, 20);
-            lblNome.TabIndex = 9;
-            lblNome.Text = "Nome utente:";
+            txtMessaggio.TabIndex = 2;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(134, 47);
+            btnLogin.Location = new Point(149, 53);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(103, 29);
-            btnLogin.TabIndex = 8;
+            btnLogin.TabIndex = 5;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
             // txtNomeUtente
             // 
-            txtNomeUtente.Location = new Point(12, 47);
+            txtNomeUtente.Location = new Point(27, 53);
             txtNomeUtente.Name = "txtNomeUtente";
             txtNomeUtente.Size = new Size(116, 27);
-            txtNomeUtente.TabIndex = 7;
+            txtNomeUtente.TabIndex = 4;
             // 
-            // frmChatUtente1
+            // lblNome
+            // 
+            lblNome.AutoSize = true;
+            lblNome.Location = new Point(27, 30);
+            lblNome.Name = "lblNome";
+            lblNome.Size = new Size(99, 20);
+            lblNome.TabIndex = 6;
+            lblNome.Text = "Nome utente:";
+            // 
+            // frmChatUtente2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -88,8 +88,8 @@
             Controls.Add(txtNomeUtente);
             Controls.Add(btnInvia);
             Controls.Add(txtMessaggio);
-            Name = "frmChatUtente1";
-            Text = "frmChatUtente1";
+            Name = "frmChatUtente2";
+            Text = "frmChatUtente2";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -98,8 +98,8 @@
 
         private Button btnInvia;
         private TextBox txtMessaggio;
-        private Label lblNome;
         private Button btnLogin;
         private TextBox txtNomeUtente;
+        private Label lblNome;
     }
 }
