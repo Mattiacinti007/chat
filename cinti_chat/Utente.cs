@@ -9,12 +9,11 @@ namespace cinti_chat
 
     internal class Utente
     {
-        
+
         //dichiarazione attributi
         string _nome;
         string _messaggio;
         bool _statoUtente;
-        List<string> _listaMessaggi;
 
         #region proprietà attributi
         //proprietà attributo nome
@@ -35,7 +34,7 @@ namespace cinti_chat
                 _nome = value;
             }
         }
-        
+
         //proprietà attributo messaggio
         public string Messaggio
         {
@@ -75,24 +74,52 @@ namespace cinti_chat
         {
             Nome = nome;
             StatoUtente = true;
-            
+
         }
 
-        
+
 
         #region funzione aggiungi messaggio
         /// <summary>
         /// aggiunge un messaggio alla chat
         /// </summary>
         /// <returns></returns>
-        public Label aggiungiMessaggio()
+        public Label aggiungiMessaggio(int yMessaggi, int panelWidth)
         {
             Label nuovoMessaggio = new Label();
-            nuovoMessaggio.Text = Messaggio;
+
+            nuovoMessaggio.Text = Program.chat.Utente1.Messaggio;
+            nuovoMessaggio.Font = new Font("Segoe UI", 10);
+            nuovoMessaggio.ForeColor = Color.Black;
+            nuovoMessaggio.BackColor = Color.FromArgb(220, 248, 198);
+            nuovoMessaggio.Padding = new Padding(10);
+            nuovoMessaggio.TextAlign = ContentAlignment.TopLeft;
+
+            // 🔑 Abilita rendering compatibile per wrap su parole lunghe
+            nuovoMessaggio.UseCompatibleTextRendering = true;
+
+            // Imposta word wrap con limite di larghezza
+            nuovoMessaggio.AutoSize = false;
+            nuovoMessaggio.MaximumSize = new Size(250, 0);
+
+            // Calcola altezza necessaria per tutto il testo (anche senza spazi)
+            Size preferredSize = TextRenderer.MeasureText(
+                nuovoMessaggio.Text,
+                nuovoMessaggio.Font,
+                new Size(250, 0),
+                TextFormatFlags.WordBreak | TextFormatFlags.TextBoxControl
+            );
+
+            // Imposta dimensioni finali
+            nuovoMessaggio.Size = new Size(250, preferredSize.Height + 20);
+
+            // Allineamento a destra
+            int x = panelWidth - nuovoMessaggio.Width - 10;
+            nuovoMessaggio.Location = new Point(x, yMessaggi);
+
             return nuovoMessaggio;
         }
         #endregion
-
-
     }
 }
+

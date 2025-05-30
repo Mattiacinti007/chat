@@ -33,13 +33,14 @@
             btnLogin = new Button();
             txtNomeUtente = new TextBox();
             lblNome = new Label();
+            panelMessaggi = new Panel();
             SuspendLayout();
             // 
             // btnInvia
             // 
-            btnInvia.Location = new Point(685, 409);
+            btnInvia.Location = new Point(811, 410);
             btnInvia.Name = "btnInvia";
-            btnInvia.Size = new Size(103, 29);
+            btnInvia.Size = new Size(116, 29);
             btnInvia.TabIndex = 3;
             btnInvia.Text = "Invia";
             btnInvia.UseVisualStyleBackColor = true;
@@ -49,7 +50,7 @@
             // 
             txtMessaggio.Location = new Point(12, 411);
             txtMessaggio.Name = "txtMessaggio";
-            txtMessaggio.Size = new Size(667, 27);
+            txtMessaggio.Size = new Size(793, 27);
             txtMessaggio.TabIndex = 2;
             // 
             // btnLogin
@@ -78,11 +79,19 @@
             lblNome.TabIndex = 6;
             lblNome.Text = "Nome utente:";
             // 
+            // panelMessaggi
+            // 
+            panelMessaggi.Location = new Point(12, 12);
+            panelMessaggi.Name = "panelMessaggi";
+            panelMessaggi.Size = new Size(915, 393);
+            panelMessaggi.TabIndex = 7;
+            // 
             // frmChatUtente2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(932, 450);
+            Controls.Add(panelMessaggi);
             Controls.Add(lblNome);
             Controls.Add(btnLogin);
             Controls.Add(txtNomeUtente);
@@ -101,5 +110,6 @@
         private Button btnLogin;
         private TextBox txtNomeUtente;
         private Label lblNome;
+        private Panel panelMessaggi;
     }
 }

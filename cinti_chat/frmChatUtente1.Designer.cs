@@ -33,13 +33,14 @@
             lblNome = new Label();
             btnLogin = new Button();
             txtNomeUtente = new TextBox();
+            panelMessaggi = new Panel();
             SuspendLayout();
             // 
             // btnInvia
             // 
-            btnInvia.Location = new Point(685, 409);
+            btnInvia.Location = new Point(817, 409);
             btnInvia.Name = "btnInvia";
-            btnInvia.Size = new Size(103, 29);
+            btnInvia.Size = new Size(110, 29);
             btnInvia.TabIndex = 5;
             btnInvia.Text = "Invia";
             btnInvia.UseVisualStyleBackColor = true;
@@ -47,9 +48,9 @@
             // 
             // txtMessaggio
             // 
-            txtMessaggio.Location = new Point(12, 411);
+            txtMessaggio.Location = new Point(6, 411);
             txtMessaggio.Name = "txtMessaggio";
-            txtMessaggio.Size = new Size(667, 27);
+            txtMessaggio.Size = new Size(805, 27);
             txtMessaggio.TabIndex = 4;
             // 
             // lblNome
@@ -78,11 +79,20 @@
             txtNomeUtente.Size = new Size(116, 27);
             txtNomeUtente.TabIndex = 7;
             // 
+            // panelMessaggi
+            // 
+            panelMessaggi.AutoScroll = true;
+            panelMessaggi.Location = new Point(6, 12);
+            panelMessaggi.Name = "panelMessaggi";
+            panelMessaggi.Size = new Size(921, 393);
+            panelMessaggi.TabIndex = 10;
+            // 
             // frmChatUtente1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(932, 450);
+            Controls.Add(panelMessaggi);
             Controls.Add(lblNome);
             Controls.Add(btnLogin);
             Controls.Add(txtNomeUtente);
@@ -101,5 +111,6 @@
         private Label lblNome;
         private Button btnLogin;
         private TextBox txtNomeUtente;
+        private Panel panelMessaggi;
     }
 }

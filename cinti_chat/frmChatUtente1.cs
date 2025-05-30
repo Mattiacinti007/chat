@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,9 @@ namespace cinti_chat
 {
     public partial class frmChatUtente1 : Form
     {
+        //dichiaro la y del messaggio
+        int yMessaggi = 20;
+
         public frmChatUtente1()
         {
             InitializeComponent();
@@ -25,6 +29,15 @@ namespace cinti_chat
             txtMessaggio.Visible = false;
             btnInvia.Visible = false;
 
+            panelMessaggi.Visible = false;
+
+            //disattiva il pulsante di massimizzazione
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            panelMessaggi.HorizontalScroll.Enabled = false;
+            panelMessaggi.HorizontalScroll.Visible = false;
+
         }
 
         /// <summary>
@@ -35,26 +48,22 @@ namespace cinti_chat
         private void btnInvia_Click(object sender, EventArgs e)
         {
 
-            //salvo il messaggio dell'utente
-            Program.chat.Utente1.Messaggio = txtMessaggio.Text;
+            Program.chat.Utente1.Messaggio = txtMessaggio.Text.Trim();
 
-            //faccio una nuova label
-            Label messaggio = Program.chat.Utente1.aggiungiMessaggio();
+            // Passo la larghezza del panel (senza dichiarare panelWidth)
+            Label messaggio = Program.chat.Utente1.aggiungiMessaggio(yMessaggi, panelMessaggi.Width);
 
-            //faccio visualizzare il messaggio
-            messaggio.Text = "Tu: " + Program.chat.Utente1.Messaggio;
+            panelMessaggi.Controls.Add(messaggio);
 
-            //faccio visualizzare la label
-            messaggio.Visible = true;
+            yMessaggi += messaggio.Height + 10;
 
-            //dopo aver inviato il messaggio ripulisco la textbox
             txtMessaggio.Text = "";
 
-            //aggiungo i controlli sul messaggio
-            this.Controls.Add(messaggio);
+            Program.chat.ListaMessaggi.Add(messaggio);
 
-            //aggiungo il messaggio alla lista dei messaggi della chat
-            Program.chat.ListaMessaggi.Add(txtMessaggio.Text);
+
+
+            
 
         }
 
@@ -78,11 +87,16 @@ namespace cinti_chat
                 //abilito la chat per inviare messaggi
                 txtMessaggio.Visible = true;
                 btnInvia.Visible = true;
+                panelMessaggi.Visible = true;
+
 
                 //rimuovo strumenti per l'inserimento del nome
                 txtNomeUtente.Visible = false;
                 btnLogin.Visible = false;
                 lblNome.Visible = false;
+
+                //carico la chat 
+                Program.chat.visualizzaChat(panelMessaggi);
 
             }
             catch (Exception ex)
