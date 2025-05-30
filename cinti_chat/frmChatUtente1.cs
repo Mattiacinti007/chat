@@ -1,8 +1,8 @@
 namespace cinti_chat
 {
-    public partial class Form1 : Form
+    public partial class frmChatUtente1 : Form
     {
-        public Form1()
+        public frmChatUtente1()
         {
             InitializeComponent();
         }

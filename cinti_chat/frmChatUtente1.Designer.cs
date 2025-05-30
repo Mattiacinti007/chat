@@ -1,6 +1,6 @@
 ﻿namespace cinti_chat
 {
-    partial class Form1
+    partial class frmChatUtente1
     {
         /// <summary>
         ///  Required designer variable.
