@@ -81,6 +81,7 @@
             // 
             // panelMessaggi
             // 
+            panelMessaggi.AutoScroll = true;
             panelMessaggi.Location = new Point(12, 12);
             panelMessaggi.Name = "panelMessaggi";
             panelMessaggi.Size = new Size(915, 393);

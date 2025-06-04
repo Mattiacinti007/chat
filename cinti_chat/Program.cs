@@ -7,8 +7,6 @@ namespace cinti_chat
         public static frmChatUtente1 formchatUtente1 = new frmChatUtente1();
         public static frmChatUtente2 formchatUtente2 = new frmChatUtente2();
 
-
-
         //inizializzo la chat
         public static Chat chat = new Chat();
 

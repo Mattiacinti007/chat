@@ -11,7 +11,7 @@ namespace cinti_chat
         //dichiarazione attributi
         public Utente Utente1 { get; set; }
         public Utente Utente2 { get; set; }
-        public List<Label> ListaMessaggi { get; set; }
+        public List<Messaggio> ListaMessaggi { get; set; }
 
         #region funzione aggiungi utente
         /// <summary>
@@ -29,25 +29,10 @@ namespace cinti_chat
         }
         #endregion
 
-        #region funzione visualizza chat
-        /// <summary>
-        /// visualizza la chat tra i due utenti nel panel
-        /// </summary>
-        public void visualizzaChat(Panel panelGenerico)
-        {
-            //foreach che scorre i messaggi della lista
-            foreach (var messaggio in ListaMessaggi)
-            {
-                //li aggiungo al panel
-                panelGenerico.ScrollControlIntoView(messaggio);
-            }
-        }
-        #endregion
-
-        //costruttore vuoto
+        //costruttore della classe
         public Chat()
         {
-            ListaMessaggi = new List<Label>();
+            ListaMessaggi = new List<Messaggio>();
         }
 
     }

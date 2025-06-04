@@ -77,47 +77,18 @@ namespace cinti_chat
 
         }
 
-
-
         #region funzione aggiungi messaggio
         /// <summary>
-        /// aggiunge un messaggio alla chat
+        /// aggiunge un messaggio alla chat alla lista dei messaggi
         /// </summary>
         /// <returns></returns>
-        public Label aggiungiMessaggio(int yMessaggi, int panelWidth)
+        public void aggiungiMessaggio()
         {
-            Label nuovoMessaggio = new Label();
+            //creo un nuovo messaggio
+            Messaggio nuovoMessaggio = new Messaggio(this.Messaggio, this.Nome);
 
-            nuovoMessaggio.Text = Program.chat.Utente1.Messaggio;
-            nuovoMessaggio.Font = new Font("Segoe UI", 10);
-            nuovoMessaggio.ForeColor = Color.Black;
-            nuovoMessaggio.BackColor = Color.FromArgb(220, 248, 198);
-            nuovoMessaggio.Padding = new Padding(10);
-            nuovoMessaggio.TextAlign = ContentAlignment.TopLeft;
-
-            // 🔑 Abilita rendering compatibile per wrap su parole lunghe
-            nuovoMessaggio.UseCompatibleTextRendering = true;
-
-            // Imposta word wrap con limite di larghezza
-            nuovoMessaggio.AutoSize = false;
-            nuovoMessaggio.MaximumSize = new Size(250, 0);
-
-            // Calcola altezza necessaria per tutto il testo (anche senza spazi)
-            Size preferredSize = TextRenderer.MeasureText(
-                nuovoMessaggio.Text,
-                nuovoMessaggio.Font,
-                new Size(250, 0),
-                TextFormatFlags.WordBreak | TextFormatFlags.TextBoxControl
-            );
-
-            // Imposta dimensioni finali
-            nuovoMessaggio.Size = new Size(250, preferredSize.Height + 20);
-
-            // Allineamento a destra
-            int x = panelWidth - nuovoMessaggio.Width - 10;
-            nuovoMessaggio.Location = new Point(x, yMessaggi);
-
-            return nuovoMessaggio;
+            //aggiungo il messaggio alla lista
+            Program.chat.ListaMessaggi.Add(nuovoMessaggio);
         }
         #endregion
     }
